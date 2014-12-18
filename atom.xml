@@ -4,7 +4,7 @@
   <title><![CDATA[Blog of Westsnow]]></title>
   <link href="http://westsnow.github.io/atom.xml" rel="self"/>
   <link href="http://westsnow.github.io/"/>
-  <updated>2014-12-18T14:48:57-05:00</updated>
+  <updated>2014-12-18T15:04:23-05:00</updated>
   <id>http://westsnow.github.io/</id>
   <author>
     <name><![CDATA[shuai.wu]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Twitter Simulator]]></title>
+    <link href="http://westsnow.github.io/blog/2014/12/18/twitter-simulator/"/>
+    <updated>2014-12-18T15:01:00-05:00</updated>
+    <id>http://westsnow.github.io/blog/2014/12/18/twitter-simulator</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Twitter APIs]]></title>
@@ -47,16 +56,10 @@ user 1434 will delete its twitter 5467</p></blockquote>
   
   <entry>
     <title type="html"><![CDATA[DOS Project]]></title>
-    <link href="http://westsnow.github.io/blog/2014/09/19/dos-project/"/>
+    <link href="http://westsnow.github.io/blog/2014/09/19/Bitcoin-Miner/"/>
     <updated>2014-09-19T16:10:01-04:00</updated>
-    <id>http://westsnow.github.io/blog/2014/09/19/dos-project</id>
+    <id>http://westsnow.github.io/blog/2014/09/19/Bitcoin-Miner</id>
     <content type="html"><![CDATA[<h2>BitCoin-Mining</h2>
-
-<blockquote><p>GRUOP MEMBERS(name + ufid):</p>
-
-<p>shuai wu   78892935</p>
-
-<p>qiyao wang 96849507</p></blockquote>
 
 <p> my project, I finally generate two jars, bitcoinServer.jar and bitcoinClient.jar.</p>
 
