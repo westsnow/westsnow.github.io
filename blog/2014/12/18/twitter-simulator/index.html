@@ -9,8 +9,7 @@
   <meta name="author" content="shuai.wu">
 
   
-  <meta name="description" content="
-">
+  <meta name="description" content="Introduction This is a extension of the previous version. In this version, I implemented a CentralServer, a RestServer and ClientSimulator, using &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -88,7 +87,33 @@
   </header>
 
 
-<div class="entry-content">
+<div class="entry-content"><h2>Introduction</h2>
+
+<p>This is a extension of the previous version.</p>
+
+<p>In this version, I implemented a CentralServer, a RestServer and ClientSimulator, using scala, akka and spray.</p>
+
+<ul>
+<li>CentralServer: communicate with RestServer, using akka' actor model.</li>
+<li>RestServer: receive HTTP requests from clients and transfer these requests into akka&rsquo;s message and forward to CentralServer. Then the
+response from CentralServer is packaged into json format message as a response to clients</li>
+<li>ClientSimulator: starts many clients that simulate the behavior of real world twitter users, who frequently send requests(like post twitters, follow friends, refresh homepage, etc) to RestServer. Using this ClientSimulator,
+I can test the RestServer and CentralServer&rsquo;s message handling capability.</li>
+</ul>
+
+
+<h2>Envonriment</h2>
+
+<p>64-core Large Machine Cluster.</p>
+
+<h2>Result</h2>
+
+<ul>
+<li>RestServer can handle nearly 6000 requests/second from clients on average(2000 POST request/second and 4000 GET request/second).</li>
+<li>The bottleneck is RestServer&rsquo;s capability(6000 requests/second on average). As I increase the number of RestServers, the centralServer are always working well(the CentralServer can at least handle 24000 requests/second without any problem since I started at most 4 RestServers).</li>
+<li>RestServers are working totally independently. As I increase the number of RestServer and Clients, the requests each RestServer can handle is still about 6000/second.</li>
+</ul>
+
 </div>
 
 

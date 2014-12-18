@@ -4,7 +4,7 @@
   <title><![CDATA[Blog of Westsnow]]></title>
   <link href="http://westsnow.github.io/atom.xml" rel="self"/>
   <link href="http://westsnow.github.io/"/>
-  <updated>2014-12-18T15:04:23-05:00</updated>
+  <updated>2014-12-18T15:40:01-05:00</updated>
   <id>http://westsnow.github.io/</id>
   <author>
     <name><![CDATA[shuai.wu]]></name>
@@ -18,7 +18,33 @@
     <link href="http://westsnow.github.io/blog/2014/12/18/twitter-simulator/"/>
     <updated>2014-12-18T15:01:00-05:00</updated>
     <id>http://westsnow.github.io/blog/2014/12/18/twitter-simulator</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<h2>Introduction</h2>
+
+<p>This is a extension of the previous version.</p>
+
+<p>In this version, I implemented a CentralServer, a RestServer and ClientSimulator, using scala, akka and spray.</p>
+
+<ul>
+<li>CentralServer: communicate with RestServer, using akka&#8217; actor model.</li>
+<li>RestServer: receive HTTP requests from clients and transfer these requests into akka&rsquo;s message and forward to CentralServer. Then the
+response from CentralServer is packaged into json format message as a response to clients</li>
+<li>ClientSimulator: starts many clients that simulate the behavior of real world twitter users, who frequently send requests(like post twitters, follow friends, refresh homepage, etc) to RestServer. Using this ClientSimulator,
+I can test the RestServer and CentralServer&rsquo;s message handling capability.</li>
+</ul>
+
+
+<h2>Envonriment</h2>
+
+<p>64-core Large Machine Cluster.</p>
+
+<h2>Result</h2>
+
+<ul>
+<li>RestServer can handle nearly 6000 requests/second from clients on average(2000 POST request/second and 4000 GET request/second).</li>
+<li>The bottleneck is RestServer&rsquo;s capability(6000 requests/second on average). As I increase the number of RestServers, the centralServer are always working well(the CentralServer can at least handle 24000 requests/second without any problem since I started at most 4 RestServers).</li>
+<li>RestServers are working totally independently. As I increase the number of RestServer and Clients, the requests each RestServer can handle is still about 6000/second.</li>
+</ul>
+
 ]]></content>
   </entry>
   
