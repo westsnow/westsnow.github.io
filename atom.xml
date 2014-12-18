@@ -4,7 +4,7 @@
   <title><![CDATA[Blog of Westsnow]]></title>
   <link href="http://westsnow.github.io/atom.xml" rel="self"/>
   <link href="http://westsnow.github.io/"/>
-  <updated>2014-12-18T14:42:04-05:00</updated>
+  <updated>2014-12-18T14:48:57-05:00</updated>
   <id>http://westsnow.github.io/</id>
   <author>
     <name><![CDATA[shuai.wu]]></name>
@@ -12,15 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[Test]]></title>
-    <link href="http://westsnow.github.io/blog/2014/12/18/test/"/>
-    <updated>2014-12-18T14:41:46-05:00</updated>
-    <id>http://westsnow.github.io/blog/2014/12/18/test</id>
-    <content type="html"><![CDATA[
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[Twitter APIs]]></title>
