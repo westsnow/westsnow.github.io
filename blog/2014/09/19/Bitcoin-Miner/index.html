@@ -272,7 +272,7 @@ The result:</p>
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://westsnow.github.io/blog/2014/09/19/Bitcoin-Miner/" data-via="" data-counturl="http://westsnow.github.io/blog/2014/09/19/Bitcoin-Miner/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://westsnow.github.io/blog/2014/09/19/Bitcoin-Miner/" data-via="shawnwu" data-counturl="http://westsnow.github.io/blog/2014/09/19/Bitcoin-Miner/" >Tweet</a>
   
   
   
@@ -305,6 +305,10 @@ The result:</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/01/13/database-implementation/">Database Implementation</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/12/18/twitter-simulator/">Twitter Simulator</a>
       </li>
     
@@ -319,6 +323,35 @@ The result:</p>
   </ul>
 </section>
 
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/westsnow">@westsnow</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'westsnow',
+            count: 3,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
 
 
 
@@ -330,7 +363,7 @@ The result:</p>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - shuai.wu -
+  Copyright &copy; 2015 - shuai.wu -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

@@ -9,10 +9,11 @@
   <meta name="author" content="shuai.wu">
 
   
-  <meta name="description" content="Blog Archive 2014 Twitter Simulator
+  <meta name="description" content="Blog Archive 2015 Database Implementation
+Jan 13 2015 2014 Twitter Simulator
 Dec 18 2014 Twitter APIs
 Dec 16 2014 DOS Project
-Sep 19 2014 Recent Posts Twitter Simulator Twitter APIs DOS &hellip;">
+Sep 19 2014 Recent &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +80,19 @@ Sep 19 2014 Recent Posts Twitter Simulator Twitter APIs DOS &hellip;">
 
 
   
+  <h2>2015</h2>
+
+<article>
+  
+<h1><a href="/blog/2015/01/13/database-implementation/">Database Implementation</a></h1>
+<time datetime="2015-01-13T19:39:43-05:00" pubdate><span class='month'>Jan</span> <span class='day'>13</span> <span class='year'>2015</span></time>
+
+
+</article>
+
+
+
+  
   <h2>2014</h2>
 
 <article>
@@ -123,6 +137,10 @@ Sep 19 2014 Recent Posts Twitter Simulator Twitter APIs DOS &hellip;">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/01/13/database-implementation/">Database Implementation</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/12/18/twitter-simulator/">Twitter Simulator</a>
       </li>
     
@@ -137,6 +155,35 @@ Sep 19 2014 Recent Posts Twitter Simulator Twitter APIs DOS &hellip;">
   </ul>
 </section>
 
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/westsnow">@westsnow</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'westsnow',
+            count: 3,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
 
 
 
@@ -148,7 +195,7 @@ Sep 19 2014 Recent Posts Twitter Simulator Twitter APIs DOS &hellip;">
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - shuai.wu -
+  Copyright &copy; 2015 - shuai.wu -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

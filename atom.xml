@@ -4,14 +4,23 @@
   <title><![CDATA[Blog of Westsnow]]></title>
   <link href="http://westsnow.github.io/atom.xml" rel="self"/>
   <link href="http://westsnow.github.io/"/>
-  <updated>2014-12-18T15:40:01-05:00</updated>
+  <updated>2015-01-13T19:55:29-05:00</updated>
   <id>http://westsnow.github.io/</id>
   <author>
     <name><![CDATA[shuai.wu]]></name>
-    
+    <email><![CDATA[hbwestsnow@gmail.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Database Implementation]]></title>
+    <link href="http://westsnow.github.io/blog/2015/01/13/database-implementation/"/>
+    <updated>2015-01-13T19:39:43-05:00</updated>
+    <id>http://westsnow.github.io/blog/2015/01/13/database-implementation</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Twitter Simulator]]></title>

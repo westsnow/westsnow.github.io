@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Twitter Simulator - Blog of Westsnow</title>
+  <title>Database Implementation - Blog of Westsnow</title>
   <meta name="author" content="shuai.wu">
 
   
-  <meta name="description" content="Introduction This is a extension of the previous version. In this version, I implemented a CentralServer, a RestServer and ClientSimulator, using &hellip;">
+  <meta name="description" content="
+">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://westsnow.github.io/blog/2014/12/18/twitter-simulator">
+  <link rel="canonical" href="http://westsnow.github.io/blog/2015/01/13/database-implementation">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Blog of Westsnow" type="application/atom+xml">
@@ -68,7 +69,7 @@
   
   <header>
     
-      <h1 class="entry-title">Twitter Simulator</h1>
+      <h1 class="entry-title">Database Implementation</h1>
     
     
       <p class="meta">
@@ -77,7 +78,7 @@
 
 
 
-<time class='entry-date' datetime='2014-12-18T15:01:00-05:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>18</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>3:01 pm</span></time>
+<time class='entry-date' datetime='2015-01-13T19:39:43-05:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>7:39 pm</span></time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://westsnow.github.io">Comments</a>
@@ -87,33 +88,7 @@
   </header>
 
 
-<div class="entry-content"><h2>Introduction</h2>
-
-<p>This is a extension of the previous version.</p>
-
-<p>In this version, I implemented a CentralServer, a RestServer and ClientSimulator, using scala, akka and spray.</p>
-
-<ul>
-<li>CentralServer: communicate with RestServer, using akka' actor model.</li>
-<li>RestServer: receive HTTP requests from clients and transfer these requests into akka&rsquo;s message and forward to CentralServer. Then the
-response from CentralServer is packaged into json format message as a response to clients</li>
-<li>ClientSimulator: starts many clients that simulate the behavior of real world twitter users, who frequently send requests(like post twitters, follow friends, refresh homepage, etc) to RestServer. Using this ClientSimulator,
-I can test the RestServer and CentralServer&rsquo;s message handling capability.</li>
-</ul>
-
-
-<h2>Envonriment</h2>
-
-<p>64-core Large Machine Cluster.</p>
-
-<h2>Result</h2>
-
-<ul>
-<li>RestServer can handle nearly 6000 requests/second from clients on average(2000 POST request/second and 4000 GET request/second).</li>
-<li>The bottleneck is RestServer&rsquo;s capability(6000 requests/second on average). As I increase the number of RestServers, the centralServer are always working well(the CentralServer can at least handle 24000 requests/second without any problem since I started at most 4 RestServers).</li>
-<li>RestServers are working totally independently. As I increase the number of RestServer and Clients, the requests each RestServer can handle is still about 6000/second.</li>
-</ul>
-
+<div class="entry-content">
 </div>
 
 
@@ -129,7 +104,7 @@ I can test the RestServer and CentralServer&rsquo;s message handling capability.
 
 
 
-<time class='entry-date' datetime='2014-12-18T15:01:00-05:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>18</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>3:01 pm</span></time>
+<time class='entry-date' datetime='2015-01-13T19:39:43-05:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>7:39 pm</span></time>
       
 
 
@@ -137,7 +112,7 @@ I can test the RestServer and CentralServer&rsquo;s message handling capability.
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://westsnow.github.io/blog/2014/12/18/twitter-simulator/" data-via="shawnwu" data-counturl="http://westsnow.github.io/blog/2014/12/18/twitter-simulator/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://westsnow.github.io/blog/2015/01/13/database-implementation/" data-via="shawnwu" data-counturl="http://westsnow.github.io/blog/2015/01/13/database-implementation/" >Tweet</a>
   
   
   
@@ -148,10 +123,8 @@ I can test the RestServer and CentralServer&rsquo;s message handling capability.
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/12/16/twitter-apis/" title="Previous Post: twitter APIs">&laquo; twitter APIs</a>
+        <a class="basic-alignment left" href="/blog/2014/12/18/twitter-simulator/" title="Previous Post: Twitter Simulator">&laquo; Twitter Simulator</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/01/13/database-implementation/" title="Next Post: database implementation">database implementation &raquo;</a>
       
     </p>
   </footer>
@@ -242,8 +215,8 @@ I can test the RestServer and CentralServer&rsquo;s message handling capability.
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://westsnow.github.io/blog/2014/12/18/twitter-simulator/';
-        var disqus_url = 'http://westsnow.github.io/blog/2014/12/18/twitter-simulator/';
+        var disqus_identifier = 'http://westsnow.github.io/blog/2015/01/13/database-implementation/';
+        var disqus_url = 'http://westsnow.github.io/blog/2015/01/13/database-implementation/';
         var disqus_script = 'embed.js';
       
     (function () {
