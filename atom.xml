@@ -4,7 +4,7 @@
   <title><![CDATA[Blog of Westsnow]]></title>
   <link href="http://westsnow.github.io/atom.xml" rel="self"/>
   <link href="http://westsnow.github.io/"/>
-  <updated>2015-01-13T19:55:29-05:00</updated>
+  <updated>2015-01-13T20:26:58-05:00</updated>
   <id>http://westsnow.github.io/</id>
   <author>
     <name><![CDATA[shuai.wu]]></name>
@@ -18,7 +18,11 @@
     <link href="http://westsnow.github.io/blog/2015/01/13/database-implementation/"/>
     <updated>2015-01-13T19:39:43-05:00</updated>
     <id>http://westsnow.github.io/blog/2015/01/13/database-implementation</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<h2>Introduction</h2>
+
+<p>At this semester, I&rsquo;ll implement my own database in C++.</p>
+
+<p>to be continued.</p>
 ]]></content>
   </entry>
   
