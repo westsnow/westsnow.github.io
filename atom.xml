@@ -4,7 +4,7 @@
   <title><![CDATA[Blog of Westsnow]]></title>
   <link href="http://westsnow.github.io/atom.xml" rel="self"/>
   <link href="http://westsnow.github.io/"/>
-  <updated>2015-01-13T20:26:58-05:00</updated>
+  <updated>2015-01-14T16:07:22-05:00</updated>
   <id>http://westsnow.github.io/</id>
   <author>
     <name><![CDATA[shuai.wu]]></name>
@@ -12,6 +12,81 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Brief Introduction to Oracle.]]></title>
+    <link href="http://westsnow.github.io/blog/2015/01/14/get-used-to-oracle-environment/"/>
+    <updated>2015-01-14T15:30:47-05:00</updated>
+    <id>http://westsnow.github.io/blog/2015/01/14/get-used-to-oracle-environment</id>
+    <content type="html"><![CDATA[<p>this article is about how to connect to Oracle database and get a brief idea of how to use it.</p>
+
+<h2>how to connect</h2>
+
+<p>Suppose you have already registered an oracle account.</p>
+
+<p>First, connect to cise machine: open your terminal input &ldquo;ssh username:thunder.cise.ufl.edu&rdquo;</p>
+
+<p>then input your cise password.</p>
+
+<h2>how to enter oracle database</h2>
+
+<p>Once logged in, you can enter the SQL terminal and try some sql commands.</p>
+
+<p>Inorder to use sqlPlus command in current context, we need first import a file</p>
+
+<blockquote><p>source /usr/local/etc/ora11.csh</p></blockquote>
+
+<p>Then log into the oracle server</p>
+
+<blockquote><p>sqlplus username@orcl</p></blockquote>
+
+<p>Here username is your oracle account username and orcl is the schema you wanna use.</p>
+
+<p>We have no choice but use &ldquo;orcl&rdquo; since this is the only schema in this database.</p>
+
+<h2>try sql commands</h2>
+
+<p>There are lots of sql commands built in oracle. Since this is also my first time to use oracle, I&rsquo;ll list some common commands I have tried.</p>
+
+<p>1</p>
+
+<blockquote><p>select owner, table_name from all_tables;</p></blockquote>
+
+<p>will list all the tables in this schema but you dont have access to them.</p>
+
+<p>2</p>
+
+<blockquote><p>select table_name from user_tables;</p></blockquote>
+
+<p>will list tables you created. Initially, it&rsquo;s empty.</p>
+
+<p>3</p>
+
+<blockquote><p>create table my_table(</p>
+
+<p> id varchar(16),</p>
+
+<p> name varchar(16),</p>
+
+<p>primary key (id)</p>
+
+<p>);</p></blockquote>
+
+<p>will create a simple table named my_table.</p>
+
+<p>4</p>
+
+<blockquote><p>insert into my_table value</p></blockquote>
+
+<p>5</p>
+
+<blockquote><p>select * from my_table values (&lsquo;007&rsquo;,&lsquo;westsnow&rsquo;);</p></blockquote>
+
+<h2>have fun</h2>
+
+<p>to be continued.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Database Implementation]]></title>
