@@ -9,7 +9,7 @@
   <meta name="author" content="shuai.wu">
 
   
-  <meta name="description" content="this article is about how to connect to Oracle database and get a brief idea of how to use it. how to connect Suppose you have already registered an &hellip;">
+  <meta name="description" content="This article is about how to build php website on cise machines and use php to connect oracle. build php website on cise machine. First, you should &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,86 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/01/14/how-to-use-php-to-connect-oracle/">How to Use Php to Connect Oracle</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-01-14T20:18:53-05:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>8:18 pm</span></time>
+        
+           | <a href="/blog/2015/01/14/how-to-use-php-to-connect-oracle/#disqus_thread"
+             data-disqus-identifier="http://westsnow.github.io/blog/2015/01/14/how-to-use-php-to-connect-oracle/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This article is about how to build php website on cise machines and use php to connect oracle.</p>
+
+<h2>build php website on cise machine.</h2>
+
+<p>First, you should create a public directory to put your .html and .php files so that others can visit your website.
+The detailed information about how to create personal page can be found at <a href="https://www.cise.ufl.edu/help/web/creating">here</a></p>
+
+<p>Then, you can create a php file in this directory, the tutorial can be found at <a href="https://www.cise.ufl.edu/help/web/php">here</a></p>
+
+<h2>use php to connect oracle.</h2>
+
+<p>take a look at the sample code hello.php below.</p>
+
+<p>This sample code simply connect to oracle server and print out everything in the table <em>my_table</em></p>
+
+<p>Then you can test if it works by visit <a href="http://cise.ufl.edu/~username/hello.php">http://cise.ufl.edu/~username/hello.php</a> (replace username with your account name)</p>
+
+<pre><code class="`php"> #!/usr/local/bin/php
+
+
+&lt;?php
+
+// Connects to the XE service (i.e. database) on the "localhost" machine
+$conn = oci_connect('username', 'password', 'oracle.cise.ufl.edu:1521/orcl');
+if (!$conn) {
+    $e = oci_error();
+    trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+}else{
+    echo "connection succeed!";
+
+}
+
+
+$stid = oci_parse($conn, 'SELECT * FROM my_table');
+oci_execute($stid);
+
+echo "&lt;table border='1'&gt;\n";
+while ($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
+    echo "&lt;tr&gt;\n";
+    foreach ($row as $item) {
+        echo "    &lt;td&gt;" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&amp;nbsp;") .
+"&lt;/td&gt;\n";
+    }
+    echo "&lt;/tr&gt;\n";
+}
+echo "&lt;/table&gt;\n";
+
+?&gt;
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -519,6 +599,10 @@ The result:</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/01/14/how-to-use-php-to-connect-oracle/">How to Use Php to Connect Oracle</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/01/14/get-used-to-oracle-environment/">Brief Introduction to Oracle.</a>
       </li>
     
@@ -532,10 +616,6 @@ The result:</p>
     
       <li class="post">
         <a href="/blog/2014/12/16/twitter-apis/">Twitter APIs</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/09/19/Bitcoin-Miner/">DOS Project</a>
       </li>
     
   </ul>

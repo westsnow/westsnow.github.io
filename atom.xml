@@ -4,7 +4,7 @@
   <title><![CDATA[Blog of Westsnow]]></title>
   <link href="http://westsnow.github.io/atom.xml" rel="self"/>
   <link href="http://westsnow.github.io/"/>
-  <updated>2015-01-14T16:51:04-05:00</updated>
+  <updated>2015-01-14T20:37:51-05:00</updated>
   <id>http://westsnow.github.io/</id>
   <author>
     <name><![CDATA[shuai.wu]]></name>
@@ -12,6 +12,63 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How to Use Php to Connect Oracle]]></title>
+    <link href="http://westsnow.github.io/blog/2015/01/14/how-to-use-php-to-connect-oracle/"/>
+    <updated>2015-01-14T20:18:53-05:00</updated>
+    <id>http://westsnow.github.io/blog/2015/01/14/how-to-use-php-to-connect-oracle</id>
+    <content type="html"><![CDATA[<p>This article is about how to build php website on cise machines and use php to connect oracle.</p>
+
+<h2>build php website on cise machine.</h2>
+
+<p>First, you should create a public directory to put your .html and .php files so that others can visit your website.
+The detailed information about how to create personal page can be found at <a href="https://www.cise.ufl.edu/help/web/creating">here</a></p>
+
+<p>Then, you can create a php file in this directory, the tutorial can be found at <a href="https://www.cise.ufl.edu/help/web/php">here</a></p>
+
+<h2>use php to connect oracle.</h2>
+
+<p>take a look at the sample code hello.php below.</p>
+
+<p>This sample code simply connect to oracle server and print out everything in the table <em>my_table</em></p>
+
+<p>Then you can test if it works by visit <a href="http://cise.ufl.edu/~username/hello.php">http://cise.ufl.edu/~username/hello.php</a> (replace username with your account name)</p>
+
+<pre><code class="`php"> #!/usr/local/bin/php
+
+
+&lt;?php
+
+// Connects to the XE service (i.e. database) on the "localhost" machine
+$conn = oci_connect('username', 'password', 'oracle.cise.ufl.edu:1521/orcl');
+if (!$conn) {
+    $e = oci_error();
+    trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+}else{
+    echo "connection succeed!";
+
+}
+
+
+$stid = oci_parse($conn, 'SELECT * FROM my_table');
+oci_execute($stid);
+
+echo "&lt;table border='1'&gt;\n";
+while ($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
+    echo "&lt;tr&gt;\n";
+    foreach ($row as $item) {
+        echo "    &lt;td&gt;" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&amp;nbsp;") .
+"&lt;/td&gt;\n";
+    }
+    echo "&lt;/tr&gt;\n";
+}
+echo "&lt;/table&gt;\n";
+
+?&gt;
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Brief Introduction to Oracle.]]></title>

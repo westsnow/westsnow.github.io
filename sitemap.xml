@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://westsnow.github.io/blog/2015/01/14/how-to-use-php-to-connect-oracle/</loc>
+    <lastmod>2015-01-14T20:18:53-05:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://westsnow.github.io/blog/2015/01/14/get-used-to-oracle-environment/</loc>
     <lastmod>2015-01-14T15:30:47-05:00</lastmod>
     <priority>0.8</priority>
@@ -35,14 +41,14 @@
   
   <url>
     <loc>http://westsnow.github.io/blog/archives/</loc>
-    <lastmod>2015-01-14T16:51:04-05:00</lastmod>
+    <lastmod>2015-01-14T20:37:51-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://westsnow.github.io/</loc>
-    <lastmod>2015-01-14T16:51:04-05:00</lastmod>
+    <lastmod>2015-01-14T20:37:51-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>

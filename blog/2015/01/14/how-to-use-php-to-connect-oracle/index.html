@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Brief Introduction to Oracle. - Blog of Westsnow</title>
+  <title>How to Use Php to Connect Oracle - Blog of Westsnow</title>
   <meta name="author" content="shuai.wu">
 
   
-  <meta name="description" content="this article is about how to connect to Oracle database and get a brief idea of how to use it. how to connect Suppose you have already registered an &hellip;">
+  <meta name="description" content="This article is about how to build php website on cise machines and use php to connect oracle. build php website on cise machine. First, you should &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://westsnow.github.io/blog/2015/01/14/get-used-to-oracle-environment">
+  <link rel="canonical" href="http://westsnow.github.io/blog/2015/01/14/how-to-use-php-to-connect-oracle">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Blog of Westsnow" type="application/atom+xml">
@@ -68,7 +68,7 @@
   
   <header>
     
-      <h1 class="entry-title">Brief Introduction to Oracle.</h1>
+      <h1 class="entry-title">How to Use Php to Connect Oracle</h1>
     
     
       <p class="meta">
@@ -77,7 +77,7 @@
 
 
 
-<time class='entry-date' datetime='2015-01-14T15:30:47-05:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>3:30 pm</span></time>
+<time class='entry-date' datetime='2015-01-14T20:18:53-05:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>8:18 pm</span></time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://westsnow.github.io">Comments</a>
@@ -87,73 +87,55 @@
   </header>
 
 
-<div class="entry-content"><p>this article is about how to connect to Oracle database and get a brief idea of how to use it.</p>
+<div class="entry-content"><p>This article is about how to build php website on cise machines and use php to connect oracle.</p>
 
-<h2>how to connect</h2>
+<h2>build php website on cise machine.</h2>
 
-<p>Suppose you have already registered an oracle account.</p>
+<p>First, you should create a public directory to put your .html and .php files so that others can visit your website.
+The detailed information about how to create personal page can be found at <a href="https://www.cise.ufl.edu/help/web/creating">here</a></p>
 
-<p>First, connect to cise machine: open your terminal input &ldquo;ssh username:thunder.cise.ufl.edu&rdquo;</p>
+<p>Then, you can create a php file in this directory, the tutorial can be found at <a href="https://www.cise.ufl.edu/help/web/php">here</a></p>
 
-<p>then input your cise password.</p>
+<h2>use php to connect oracle.</h2>
 
-<h2>how to enter oracle database</h2>
+<p>take a look at the sample code hello.php below.</p>
 
-<p>Once logged in, you can enter the SQL terminal and try some sql commands.</p>
+<p>This sample code simply connect to oracle server and print out everything in the table <em>my_table</em></p>
 
-<p>Inorder to use sqlPlus command in current context, we need first import a file</p>
+<p>Then you can test if it works by visit <a href="http://cise.ufl.edu/~username/hello.php">http://cise.ufl.edu/~username/hello.php</a> (replace username with your account name)</p>
 
-<blockquote><p>source /usr/local/etc/ora11.csh</p></blockquote>
+<pre><code class="`php"> #!/usr/local/bin/php
 
-<p>Then log into the oracle server</p>
 
-<blockquote><p>sqlplus username@orcl</p></blockquote>
+&lt;?php
 
-<p>Here username is your oracle account username and orcl is the schema you wanna use.</p>
+// Connects to the XE service (i.e. database) on the "localhost" machine
+$conn = oci_connect('username', 'password', 'oracle.cise.ufl.edu:1521/orcl');
+if (!$conn) {
+    $e = oci_error();
+    trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+}else{
+    echo "connection succeed!";
 
-<p>We have no choice but use &ldquo;orcl&rdquo; since this is the only schema in this database.</p>
+}
 
-<h2>try sql commands</h2>
 
-<p>There are lots of sql commands built in oracle. Since this is also my first time to use oracle, I&rsquo;ll list some common commands I have tried.</p>
+$stid = oci_parse($conn, 'SELECT * FROM my_table');
+oci_execute($stid);
 
-<p>1</p>
+echo "&lt;table border='1'&gt;\n";
+while ($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
+    echo "&lt;tr&gt;\n";
+    foreach ($row as $item) {
+        echo "    &lt;td&gt;" . ($item !== null ? htmlentities($item, ENT_QUOTES) : "&amp;nbsp;") .
+"&lt;/td&gt;\n";
+    }
+    echo "&lt;/tr&gt;\n";
+}
+echo "&lt;/table&gt;\n";
 
-<blockquote><p>select owner, table_name from all_tables;</p></blockquote>
-
-<p>will list all the tables in this schema but you dont have access to them.</p>
-
-<p>2</p>
-
-<blockquote><p>select table_name from user_tables;</p></blockquote>
-
-<p>will list tables you created. Initially, it&rsquo;s empty.</p>
-
-<p>3</p>
-
-<blockquote><p>create table my_table(</p>
-
-<p> id varchar(16),</p>
-
-<p> name varchar(16),</p>
-
-<p>primary key (id)</p>
-
-<p>);</p></blockquote>
-
-<p>will create a simple table named my_table.</p>
-
-<p>4</p>
-
-<blockquote><p>insert into my_table values (&lsquo;007&rsquo;,&lsquo;westsnow&rsquo;);</p></blockquote>
-
-<p>5</p>
-
-<blockquote><p>select * from my_table;</p>
-
-<h2>have fun</h2>
-
-<p>to be continued.</p></blockquote>
+?&gt;
+</code></pre>
 </div>
 
 
@@ -169,7 +151,7 @@
 
 
 
-<time class='entry-date' datetime='2015-01-14T15:30:47-05:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>3:30 pm</span></time>
+<time class='entry-date' datetime='2015-01-14T20:18:53-05:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>8:18 pm</span></time>
       
 
 
@@ -177,7 +159,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://westsnow.github.io/blog/2015/01/14/get-used-to-oracle-environment/" data-via="shawnwu" data-counturl="http://westsnow.github.io/blog/2015/01/14/get-used-to-oracle-environment/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://westsnow.github.io/blog/2015/01/14/how-to-use-php-to-connect-oracle/" data-via="shawnwu" data-counturl="http://westsnow.github.io/blog/2015/01/14/how-to-use-php-to-connect-oracle/" >Tweet</a>
   
   
   
@@ -188,10 +170,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2015/01/13/database-implementation/" title="Previous Post: database implementation">&laquo; database implementation</a>
+        <a class="basic-alignment left" href="/blog/2015/01/14/get-used-to-oracle-environment/" title="Previous Post: Brief introduction to Oracle.">&laquo; Brief introduction to Oracle.</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/01/14/how-to-use-php-to-connect-oracle/" title="Next Post: how to use php to connect oracle">how to use php to connect oracle &raquo;</a>
       
     </p>
   </footer>
@@ -286,8 +266,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://westsnow.github.io/blog/2015/01/14/get-used-to-oracle-environment/';
-        var disqus_url = 'http://westsnow.github.io/blog/2015/01/14/get-used-to-oracle-environment/';
+        var disqus_identifier = 'http://westsnow.github.io/blog/2015/01/14/how-to-use-php-to-connect-oracle/';
+        var disqus_url = 'http://westsnow.github.io/blog/2015/01/14/how-to-use-php-to-connect-oracle/';
         var disqus_script = 'embed.js';
       
     (function () {
